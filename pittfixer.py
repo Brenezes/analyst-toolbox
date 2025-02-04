@@ -11,6 +11,7 @@ import random
 import csv
 import sys
 import subprocess
+import os
 
 # Gerar valores #
 def gerar_valores_aleatorios():
@@ -224,7 +225,7 @@ def main():
     print("\n" + "="*50)
     print("PITTFIXER V1.8 - Copyright (c) [2025] [PIPEWAY ENGENHARIA LTDA] ".center(50))
     print("="*50)
-    menu_pitfixer()
+    menu_pittfixer()
 
 if __name__ == "__main__":
     main()
