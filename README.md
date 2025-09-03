@@ -8,11 +8,12 @@
 **Features** ✨
 --------------
 
-| Tool                 | What It Does                                                      | Why Use It?                                                                                                        |
-| -------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| 1\. PittFixer        | Corrects the count of corrosion events in datasets.               | Ensures data accuracy by automatically fixing discrepancies in event counts.                                       |
-| 2\. ListMPTVO Concat | Combines multiple files of the same extension into a single file. | Simplifies data aggregation, perfect for merging large volumes of files, such as logs.                             |
-| 3\. Near Weld        | Filters anomaly events based on their distance from weld events.  | Essential for pipeline inspection data analysis, allowing you to filter critical data based on proximity to welds. |
+| Tool                     | What It Does                                                                            | Why Use It?                                                                                                            |
+| ------------------------ | --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| **1\. PittFixer**        | **Corrects** the count of corrosion events in datasets.                                 | **Ensures data accuracy** by automatically fixing discrepancies in event counts.                                       |
+| **2\. ListMPTVO Concat** | **Combines** multiple files of the same extension into a single file.                   | **Simplifies data aggregation**, perfect for merging large volumes of files, such as logs.                             |
+| **3\. Near Weld**        | **Filters** anomaly events based on their distance from weld events.                    | **Essential** for pipeline inspection data analysis, allowing you to filter critical data based on proximity to welds. |
+| **4\. DefectMatcher**    | **Correlates defects** between two database tables based on spatial and attribute data. | **Provides data validation** for quality control and allows for automated updates to defect records.                   |
 
 > ⏳ *New scripts are under development! Stay tuned for future updates.*
 
@@ -36,7 +37,7 @@
 
     ```
 
-3.  Make sure all scripts (`pittfixer.py`, `listmptvoconcat.py`, `near_weld.py`) are in the same directory as `menu.py`.
+3.  Make sure all scripts (`pittfixer.py`, `listmptvoconcat.py`, `near_weld.py`, `defectmatcher.py`) are in the same directory as `menu.py`.
 
 ### How to Run
 
@@ -56,7 +57,8 @@
     1. Run PittFixer
     2. Run ListMPTVO Concat
     3. Run Near Weld
-    4. Exit
+    4. Run DefectMatcher
+    5. Exit
     ============================
     Select an Option:
 
@@ -67,11 +69,12 @@
 **Technical Details** ⚙️
 ------------------------
 
-| Script           | Input                                                                      | Output                                        |
-| ---------------- | -------------------------------------------------------------------------- | --------------------------------------------- |
-| PittFixer        | Dataset with corrosion event counts.                                       | Corrected dataset with accurate event counts. |
-| ListMPTVO Concat | Directory containing files of the same extension (e.g., .vel, .ori, .mag). | A single concatenated file.                   |
-| Near Weld        | Database path, table name, and distance threshold.                         | Updated database with filtered anomalies.     |
+| Script               | Input                                                                            | Output                                                                 |
+| -------------------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| **PittFixer**        | Dataset with corrosion event counts.                                             | Corrected dataset with accurate event counts.                          |
+| **ListMPTVO Concat** | Directory containing files of the same extension (e.g., `.vel`, `.ori`, `.mag`). | A single concatenated file.                                            |
+| **Near Weld**        | Database path, table name, and distance threshold.                               | Updated database with filtered anomalies.                              |
+| **DefectMatcher**    | Database path, main table name, and reference table name.                        | Updated database (optional) and a CSV log file detailing correlations. |
 
 **Contributing** 🤝
 -------------------
