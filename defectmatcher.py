@@ -7,7 +7,7 @@ from datetime import datetime
 
 
 class DefectMatcher:
-    """Ferramenta para correlação de defeitos em bancos de dados de inspeção"""
+    # Ferramenta para correlação de defeitos em bancos de dados de inspeção #
 
     def __init__(self, caminho_banco: str):
         self.caminho_banco = caminho_banco
@@ -24,7 +24,7 @@ class DefectMatcher:
         self.fechar_conexao()
 
     def conectar(self):
-        """Estabelece conexão com o banco de dados"""
+       
         try:
             self.conexao = sqlite3.connect(self.caminho_banco)
             self.conexao.row_factory = sqlite3.Row
@@ -32,17 +32,17 @@ class DefectMatcher:
             raise RuntimeError(f"Erro ao conectar: {erro}") from erro
 
     def fechar_conexao(self):
-        """Fecha a conexão se estiver ativa"""
+        
         if self.conexao:
             self.conexao.close()
 
     def iniciar_log(self, operacao: str):
-        """Configura arquivo de log com timestamp"""
+        # Configura arquivo de log com timestamp #
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         self.log_file = f"DefectMatcher_{operacao}_{timestamp}.csv"
 
     def criar_log(self, evento, resultado):
-        """Registra correlação no arquivo CSV"""
+        # Registra correlação no arquivo CSV #
         with open(self.log_file, 'a', newline='', encoding='utf-8') as f:
             writer = csv.writer(f, delimiter=';')
 
@@ -92,9 +92,9 @@ class DefectMatcher:
                 total = 0
 
                 for reg in registros:
-                    # Cálculo dos ranges
-                    axi_ini = reg['posAxiIni'] - 2
-                    axi_fim = reg['posAxiFim'] + 2
+                    # Cálculo dos ranges #
+                    axi_ini = reg['posAxiIni'] - 10
+                    axi_fim = reg['posAxiFim'] + 10
                     prof_min = reg['prof'] - 10
                     prof_max = reg['prof'] + 10
                     ang_min = reg['posAng'] - 8.0

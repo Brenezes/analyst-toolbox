@@ -30,30 +30,30 @@ class GerenciadorBancoDados:
             self.conexao.close()
             self.conexao = None
 
-    def atualizar_tipo(self, tabela_defeitos: str, distancia: int):
-        """
-        Atualiza a coluna 'tipo' com base na distância especificada.
+def atualizar_tipo(self, tabela_defeitos: str, distancia: int):
+    # Atualiza o campo 'tipo' de registros na tabela de defeitos que estejam
+    # até `distancia` mm de uma solda (baseado em posAxi).
+    
+    if not self.conexao:
+        raise RuntimeError("Conexão não estabelecida.")
 
-        Args:
-            tabela_defeitos (str): Nome da tabela de defeitos
-            distancia (int): Distância máxima em milímetros
-        """
-        if not self.conexao:
-            raise RuntimeError("Conexão não estabelecida.")
+    query = f"""
+        UPDATE {tabela_defeitos}
+        SET tipo = 'PS'
+        WHERE EXISTS (
+            SELECT 1
+            FROM solda
+            WHERE ABS(solda.posAxi - {tabela_defeitos}.posAxi) <= ?
+        );
+    """
 
-        query = f"""
-            UPDATE {tabela_defeitos}
-            SET tipo = 'PS'
-            WHERE distSldAnt < ? OR distSldPost < ?;
-        """
-
-        try:
-            with self.conexao:
-                cursor = self.conexao.cursor()
-                cursor.execute(query, (distancia, distancia))
-                print(f"\nRegistros atualizados: {cursor.rowcount}")
-        except sqlite3.Error as erro:
-            raise RuntimeError(f"Erro na atualização: {erro}") from erro
+    try:
+        with self.conexao:
+            cursor = self.conexao.cursor()
+            cursor.execute(query, (distancia,))
+            print(f"\nRegistros atualizados: {cursor.rowcount}")
+    except sqlite3.Error as erro:
+        raise RuntimeError(f"Erro na atualização: {erro}") from erro
 
 
 def exibir_menu():

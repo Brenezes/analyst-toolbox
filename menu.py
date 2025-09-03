@@ -7,7 +7,7 @@ def mostrar_menu():
         print("\n" + "=" * 50)
         print("Analyst Tool Box".center(50))
         print("=" * 50)
-        print("\n1. Executar PitFixer")
+        print("\n1. Executar PittFixer")
         print("\n2. Executar LISTMPTVO Concat")
         print("\n3. Executar Near Weld")
         print("\n4. Executar Defect Matcher")

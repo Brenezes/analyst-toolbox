@@ -1,134 +1,95 @@
-## Analyst Toolbox ##
-Welcome to the Analyst Toolbox, a unified collection of automation tools designed to streamline and enhance the workflow of analysis teams. This toolbox combines three powerful scripts into a single, easy-to-use menu-driven interface, providing efficient solutions for common tasks in data analysis and processing.
+**Analyst Toolbox** 🧰
+======================
 
-Features
-1. PittFixer
-Purpose: Corrects the quantity of corrosion events in datasets.
+### The Essential Toolkit for Data Analysis
 
-Functionality: Automates the identification and correction of discrepancies in corrosion event counts, ensuring data accuracy and consistency.
+**Analyst Toolbox** is a unified collection of automation tools designed to streamline and enhance the workflow of analysis teams. With a simple and user-friendly interface, this toolkit combines three powerful scripts into a single menu, providing efficient solutions for common data processing and analysis tasks.
 
-Use Case: Ideal for datasets where corrosion event counts need to be validated and standardized.
+**Features** ✨
+--------------
 
-2. ListMPTVO Concat
-Purpose: Concatenates LISTMPTVO files of the same extension within a directory.
+| Tool                 | What It Does                                                      | Why Use It?                                                                                                        |
+| -------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| 1\. PittFixer        | Corrects the count of corrosion events in datasets.               | Ensures data accuracy by automatically fixing discrepancies in event counts.                                       |
+| 2\. ListMPTVO Concat | Combines multiple files of the same extension into a single file. | Simplifies data aggregation, perfect for merging large volumes of files, such as logs.                             |
+| 3\. Near Weld        | Filters anomaly events based on their distance from weld events.  | Essential for pipeline inspection data analysis, allowing you to filter critical data based on proximity to welds. |
 
-Functionality: Combines multiple files (.vel, .ori, .mag) into a single file, simplifying data aggregation and analysis.
+> ⏳ *New scripts are under development! Stay tuned for future updates.*
 
-Use Case: Perfect for merging large datasets or log files stored in separate files.
+**Installation and Usage** 🚀
+-----------------------------
 
-3. Near Weld
-Purpose: Filters anomaly events based on their distance from weld events.
+### Prerequisites
 
-Functionality: Allows users to define a distance threshold (in millimeters) to filter anomalies near weld events. The script dynamically updates the database based on the user's input.
+-   **Python 3.7+**
 
-Use Case: Essential for analyzing pipeline inspection data, where the proximity of anomalies to welds is critical.
+-   **Python packages:**  `sqlite3`, `os`, `subprocess`, `sys`.
 
-4. Future Scripts
-   Soon
+### How to Set Up
 
-## Installation ##
-Prerequisites:
+1.  Clone this repository to your local machine.
 
-Python 3.7 or higher.
+2.  Install the dependencies with a single command:
 
-Required Python packages: sqlite3, os, subprocess, sys.
+    ```
+    pip install -r requirements.txt
 
-Setup:
+    ```
 
-Clone or download the repository.
+3.  Make sure all scripts (`pittfixer.py`, `listmptvoconcat.py`, `near_weld.py`) are in the same directory as `menu.py`.
 
-Install dependencies (if any) using:
+### How to Run
 
-bash
-Copy
-pip install -r requirements.txt
-Configuration:
+1.  Launch the main tool in your terminal:
 
-Ensure all scripts (pittfixer.py, listmptvoconcat.py, near_weld.py) are in the same directory as menu.py.
+    ```
+    python menu.py
 
-Modify the database paths or file directories in the scripts as needed.
+    ```
 
-Usage
-Run the Toolbox:
+2.  An interactive menu will appear. Simply type the number of the tool you want to use.
 
-Execute the main menu script:
+    ```
+    ============================
+    ANALYST TOOLBOX - Main Menu
+    ============================
+    1. Run PittFixer
+    2. Run ListMPTVO Concat
+    3. Run Near Weld
+    4. Exit
+    ============================
+    Select an Option:
 
-bash
-Copy
-python menu.py
-Main Menu:
+    ```
 
-The toolbox provides a user-friendly menu with the following options:
+3.  Follow the on-screen instructions for each script. For example, for **Near Weld**, you'll enter the database path and the filtering distance.
 
-Copy
-============================
-ANALYST TOOLBOX - Main Menu
-============================
-1. Run PittFixer
-2. Run ListMPTVO Concat
-3. Run Near Weld
-4. Exit
-============================
-Select an Option:
+**Technical Details** ⚙️
+------------------------
 
-Choose the desired tool by entering the corresponding number.
+| Script           | Input                                                                      | Output                                        |
+| ---------------- | -------------------------------------------------------------------------- | --------------------------------------------- |
+| PittFixer        | Dataset with corrosion event counts.                                       | Corrected dataset with accurate event counts. |
+| ListMPTVO Concat | Directory containing files of the same extension (e.g., .vel, .ori, .mag). | A single concatenated file.                   |
+| Near Weld        | Database path, table name, and distance threshold.                         | Updated database with filtered anomalies.     |
 
-Follow the on-screen instructions for each tool:
+**Contributing** 🤝
+-------------------
 
-PittFixer: Input the dataset path and let the script correct corrosion event counts.
+Ideas, bug reports, or feature requests are very welcome! Feel free to open an issue or submit a pull request.
 
-ListMPTVO Concat: Provide the directory path and file extension to concatenate files.
+**License** 📜
+--------------
 
-Near Weld: Enter the database path, table name, and distance threshold to filter anomalies near welds.
+This project is licensed under the [**LICENSE.md**].
 
-Exit:
+**Contact** 📧
+--------------
 
-Select option 8 to exit the toolbox.
+For questions or support, please contact **Breno Menezes**:
 
-Script Details
-PittFixer
-Input: Dataset with corrosion event counts.
+-   **Email:**  `brenomearaujo@gmail.com`
 
-Output: Corrected dataset with accurate event counts.
+-   **GitHub:**  `Brenezes`
 
-Key Features:
-
-Automated validation of event counts.
-
-Logs discrepancies for review.
-
-ListMPTVO Concat
-Input: Directory containing files of the same extension.
-
-Output: A single concatenated file.
-
-Key Features:
-
-Supports multiple file types (.vel, .ori, .mag).
-
-Preserves file headers and structure.
-
-Near Weld
-Input: Database path, table name, and distance threshold.
-
-Output: Updated database with filtered anomalies.
-
-Key Features:
-
-Dynamic distance filtering.
-
-SQL-based updates for efficiency.
-
-Contributing
-Contributions to the Analyst Toolbox are welcome! If you have suggestions, bug reports, or feature requests, please open an issue or submit a pull request.
-
-License
-This project is licensed. See the LICENSE file for details.
-
-Contact
-For questions or support, please contact:
-Your Name
-Email: breno.araujo@pipeway.com
-GitHub: Brenezes
-
-Thank you for using the Analyst Toolbox! We hope it simplifies your workflow and enhances your productivity. 🚀
+> 🎉 **Thank you for using the Analyst Toolbox!** We hope it simplifies your workflow and enhances your productivity.
